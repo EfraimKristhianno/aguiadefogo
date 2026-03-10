@@ -33,7 +33,7 @@ import {
   Route,
   Activity,
 } from "lucide-react";
-import logo from "@/assets/logo-aguia-de-fogo.png";
+
 import { cn } from "@/lib/utils";
 
 interface MenuItem {
@@ -144,13 +144,14 @@ export function AppSidebar() {
         collapsed ? "w-[68px]" : "w-64"
       )}
     >
-      {/* Logo */}
-      <div className="flex items-center gap-3 px-4 py-4 border-b border-sidebar-border min-h-[64px]">
-        <img src={logo} alt="Águia de Fogo" className="h-9 w-auto object-contain flex-shrink-0" />
-        {!collapsed && (
-          <span className="text-sm font-bold text-sidebar-primary truncate">
-            Águia de Fogo
+      {/* Header */}
+      <div className="flex items-center justify-center px-4 py-4 border-b border-sidebar-border min-h-[64px]">
+        {!collapsed ? (
+          <span className="text-sm font-bold text-sidebar-primary tracking-wide">
+            ÁGUIA DE FOGO
           </span>
+        ) : (
+          <span className="text-xs font-bold text-sidebar-primary">AF</span>
         )}
       </div>
 
