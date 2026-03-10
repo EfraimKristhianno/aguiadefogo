@@ -169,7 +169,7 @@ export function AppSidebar() {
                 className={cn(
                   "flex items-center w-full px-3 py-2 rounded-lg text-xs font-semibold uppercase tracking-wider transition-colors duration-200",
                   hasActive
-                    ? "bg-sidebar-primary/20 text-sidebar-primary"
+                    ? "text-sidebar-primary"
                     : "text-sidebar-foreground/50 hover:text-sidebar-foreground/80"
                 )}
                 title={collapsed ? group.title : undefined}
@@ -205,7 +205,7 @@ export function AppSidebar() {
                         className={cn(
                           "flex items-center gap-2.5 px-2.5 py-2 rounded-md text-sm transition-all duration-200 group",
                           isActive
-                            ? "bg-sidebar-primary text-sidebar-primary-foreground font-medium"
+                            ? "text-sidebar-primary font-medium"
                             : "text-sidebar-foreground/60 hover:bg-sidebar-accent/50 hover:text-sidebar-foreground"
                         )}
                       >
@@ -230,7 +230,7 @@ export function AppSidebar() {
                         className={cn(
                           "flex items-center justify-center py-2 rounded-md transition-all duration-200",
                           isActive
-                            ? "bg-sidebar-primary text-sidebar-primary-foreground"
+                            ? "text-sidebar-primary"
                             : "text-sidebar-foreground/50 hover:bg-sidebar-accent/50 hover:text-sidebar-foreground"
                         )}
                       >
