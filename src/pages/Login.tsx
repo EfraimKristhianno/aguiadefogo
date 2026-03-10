@@ -7,7 +7,7 @@ import { Label } from "@/components/ui/label";
 import { Checkbox } from "@/components/ui/checkbox";
 import { supabase } from "@/lib/supabase";
 import { toast } from "sonner";
-import loginBg from "@/assets/login-bg.png";
+import loginLogo from "@/assets/login-logo.png";
 import logoHeader from "@/assets/logo-header.png";
 
 export default function Login() {
@@ -34,14 +34,16 @@ export default function Login() {
   return (
     <div className="min-h-screen flex">
       {/* Left – background image */}
-      <div className="hidden lg:flex lg:w-3/5 bg-primary" />
+      <div className="hidden lg:flex lg:w-3/5 bg-white items-center justify-center p-12">
+        <img src={loginLogo} alt="Águia de Fogo" className="max-w-md w-full h-auto object-contain" />
+      </div>
 
       {/* Right – login form */}
       <div className="flex-1 flex items-center justify-center bg-[hsl(0,0%,5%)] px-6">
         <div className="w-full max-w-md space-y-8">
           {/* Mobile logo */}
           <div className="lg:hidden flex justify-center mb-4">
-            <img src={loginBg} alt="Águia de Fogo" className="h-24 w-auto object-contain rounded-lg" />
+            <img src={loginLogo} alt="Águia de Fogo" className="h-24 w-auto object-contain rounded-lg" />
           </div>
 
           <div className="text-center space-y-2">
