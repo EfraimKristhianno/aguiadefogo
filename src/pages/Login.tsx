@@ -34,7 +34,9 @@ export default function Login() {
   return (
     <div className="min-h-screen flex">
       {/* Left – background image */}
-      <div className="hidden lg:flex lg:w-3/5 bg-primary" />
+      <div className="hidden lg:flex lg:w-3/5 bg-white items-center justify-center p-12">
+        <img src={loginLogo} alt="Águia de Fogo" className="max-w-md w-full h-auto object-contain" />
+      </div>
 
       {/* Right – login form */}
       <div className="flex-1 flex items-center justify-center bg-[hsl(0,0%,5%)] px-6">
