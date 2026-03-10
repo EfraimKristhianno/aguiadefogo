@@ -3,6 +3,8 @@ import { Button } from "@/components/ui/button";
 import { StatCard } from "@/components/dashboard/StatCard";
 import { motion } from "framer-motion";
 import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, PieChart, Pie, Cell } from "recharts";
+import { toast } from "sonner";
+import { downloadMockPDF, generateRelatorioOcorrenciasPDF } from "@/lib/download-utils";
 
 const porTipo = [
   { name: "Invasão", value: 12 },
@@ -24,14 +26,16 @@ const porMes = [
 const COLORS = ["hsl(0, 98%, 31%)", "hsl(46, 99%, 50%)", "hsl(0, 0%, 40%)", "hsl(0, 70%, 45%)", "hsl(46, 80%, 60%)"];
 
 export default function RelatorioOcorrencias() {
+  const handleExport = () => {
+    downloadMockPDF("Relatorio_Ocorrencias_2026.txt", generateRelatorioOcorrenciasPDF());
+    toast.success("Relatório de ocorrências exportado!");
+  };
+
   return (
     <div className="space-y-6">
       <div className="flex items-center justify-between">
-        <div>
-          <h1 className="text-2xl font-bold">Relatório de Ocorrências</h1>
-          <p className="text-muted-foreground">Análise de ocorrências por período</p>
-        </div>
-        <Button variant="outline"><Download className="h-4 w-4 mr-2" />Exportar PDF</Button>
+        <div><h1 className="text-2xl font-bold">Relatório de Ocorrências</h1><p className="text-muted-foreground">Análise de ocorrências por período</p></div>
+        <Button variant="outline" onClick={handleExport}><Download className="h-4 w-4 mr-2" />Exportar PDF</Button>
       </div>
 
       <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
