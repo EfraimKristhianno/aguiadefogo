@@ -230,7 +230,7 @@ export function AppSidebar() {
                         className={cn(
                           "flex items-center justify-center py-2 rounded-md transition-all duration-200",
                           isActive
-                            ? "bg-sidebar-accent text-sidebar-primary"
+                            ? "bg-sidebar-primary text-sidebar-primary-foreground"
                             : "text-sidebar-foreground/50 hover:bg-sidebar-accent/50 hover:text-sidebar-foreground"
                         )}
                       >
