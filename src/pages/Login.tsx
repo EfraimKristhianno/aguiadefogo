@@ -43,7 +43,7 @@ export default function Login() {
         <div className="w-full max-w-md space-y-8">
           {/* Mobile logo */}
           <div className="lg:hidden flex justify-center mb-4">
-            <img src={loginBg} alt="Águia de Fogo" className="h-24 w-auto object-contain rounded-lg" />
+            <img src={loginLogo} alt="Águia de Fogo" className="h-24 w-auto object-contain rounded-lg" />
           </div>
 
           <div className="text-center space-y-2">
