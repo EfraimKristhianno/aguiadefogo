@@ -16,6 +16,7 @@ import Orcamentos from "./pages/Orcamentos";
 import Financeiro from "./pages/Financeiro";
 import FolhaPagamento from "./pages/FolhaPagamento";
 import NotFound from "./pages/NotFound";
+import Login from "./pages/Login";
 
 const queryClient = new QueryClient();
 
@@ -26,6 +27,7 @@ const App = () => (
       <Sonner />
       <BrowserRouter>
         <Routes>
+          <Route path="/login" element={<Login />} />
           <Route element={<AppLayout />}>
             <Route path="/" element={<Dashboard />} />
             <Route path="/funcionarios" element={<Funcionarios />} />

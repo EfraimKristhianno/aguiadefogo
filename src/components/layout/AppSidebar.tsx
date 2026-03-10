@@ -33,7 +33,7 @@ import {
   Route,
   Activity,
 } from "lucide-react";
-import logo from "@/assets/logo-aguia-de-fogo.png";
+
 import { cn } from "@/lib/utils";
 
 interface MenuItem {
