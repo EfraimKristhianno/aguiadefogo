@@ -205,7 +205,7 @@ export function AppSidebar() {
                         className={cn(
                           "flex items-center gap-2.5 px-2.5 py-2 rounded-md text-sm transition-all duration-200 group",
                           isActive
-                            ? "bg-sidebar-primary text-sidebar-primary-foreground font-medium"
+                            ? "text-sidebar-primary font-medium"
                             : "text-sidebar-foreground/60 hover:bg-sidebar-accent/50 hover:text-sidebar-foreground"
                         )}
                       >
