@@ -8,6 +8,7 @@ import { Checkbox } from "@/components/ui/checkbox";
 import { supabase } from "@/lib/supabase";
 import { toast } from "sonner";
 import loginBg from "@/assets/login-bg.png";
+import logoHeader from "@/assets/logo-header.png";
 
 export default function Login() {
   const navigate = useNavigate();
