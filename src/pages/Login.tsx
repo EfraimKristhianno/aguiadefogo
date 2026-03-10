@@ -21,6 +21,14 @@ export default function Login() {
     e.preventDefault();
     setLoading(true);
 
+    // MVP: hardcoded admin credentials
+    if (email === "admin@aguiadefogo.com.br" && password === "123456") {
+      toast.success("Login realizado com sucesso!");
+      navigate("/");
+      setLoading(false);
+      return;
+    }
+
     const { error } = await supabase.auth.signInWithPassword({ email, password });
 
     if (error) {

@@ -15,6 +15,25 @@ import Ocorrencias from "./pages/Ocorrencias";
 import Orcamentos from "./pages/Orcamentos";
 import Financeiro from "./pages/Financeiro";
 import FolhaPagamento from "./pages/FolhaPagamento";
+import Contratos from "./pages/Contratos";
+import Usuarios from "./pages/Usuarios";
+import Configuracoes from "./pages/Configuracoes";
+import Rondas from "./pages/Rondas";
+import Monitoramento from "./pages/Monitoramento";
+import Propostas from "./pages/Propostas";
+import ContasReceber from "./pages/ContasReceber";
+import Faturamento from "./pages/Faturamento";
+import FluxoCaixa from "./pages/FluxoCaixa";
+import RelatoriosFinanceiros from "./pages/RelatoriosFinanceiros";
+import EscalasRH from "./pages/EscalasRH";
+import Holerites from "./pages/Holerites";
+import AssinaturaHolerite from "./pages/AssinaturaHolerite";
+import RelatorioFuncionarios from "./pages/RelatorioFuncionarios";
+import RelatorioPonto from "./pages/RelatorioPonto";
+import RelatorioEscalas from "./pages/RelatorioEscalas";
+import RelatorioOcorrencias from "./pages/RelatorioOcorrencias";
+import RelatorioFinanceiro from "./pages/RelatorioFinanceiro";
+import RelatorioPostos from "./pages/RelatorioPostos";
 import NotFound from "./pages/NotFound";
 import Login from "./pages/Login";
 
@@ -29,17 +48,40 @@ const App = () => (
         <Routes>
           <Route path="/login" element={<Login />} />
           <Route element={<AppLayout />}>
+            {/* Administrativo */}
             <Route path="/" element={<Dashboard />} />
-            <Route path="/funcionarios" element={<Funcionarios />} />
             <Route path="/clientes" element={<Clientes />} />
             <Route path="/postos" element={<Postos />} />
+            <Route path="/contratos" element={<Contratos />} />
+            <Route path="/usuarios" element={<Usuarios />} />
+            <Route path="/configuracoes" element={<Configuracoes />} />
+            {/* Operacional */}
             <Route path="/escalas" element={<Escalas />} />
-            <Route path="/ponto" element={<ControlePonto />} />
             <Route path="/checklists" element={<Checklists />} />
             <Route path="/ocorrencias" element={<Ocorrencias />} />
+            <Route path="/rondas" element={<Rondas />} />
+            <Route path="/monitoramento" element={<Monitoramento />} />
+            {/* Financeiro */}
             <Route path="/orcamentos" element={<Orcamentos />} />
-            <Route path="/financeiro" element={<Financeiro />} />
+            <Route path="/propostas" element={<Propostas />} />
+            <Route path="/contas-receber" element={<ContasReceber />} />
+            <Route path="/faturamento" element={<Faturamento />} />
+            <Route path="/fluxo-caixa" element={<FluxoCaixa />} />
+            <Route path="/relatorios-financeiros" element={<RelatoriosFinanceiros />} />
+            {/* RH */}
+            <Route path="/funcionarios" element={<Funcionarios />} />
+            <Route path="/ponto" element={<ControlePonto />} />
+            <Route path="/escalas-rh" element={<EscalasRH />} />
             <Route path="/folha" element={<FolhaPagamento />} />
+            <Route path="/holerites" element={<Holerites />} />
+            <Route path="/assinatura-holerite" element={<AssinaturaHolerite />} />
+            {/* Relatórios */}
+            <Route path="/relatorio-funcionarios" element={<RelatorioFuncionarios />} />
+            <Route path="/relatorio-ponto" element={<RelatorioPonto />} />
+            <Route path="/relatorio-escalas" element={<RelatorioEscalas />} />
+            <Route path="/relatorio-ocorrencias" element={<RelatorioOcorrencias />} />
+            <Route path="/relatorio-financeiro" element={<RelatorioFinanceiro />} />
+            <Route path="/relatorio-postos" element={<RelatorioPostos />} />
           </Route>
           <Route path="*" element={<NotFound />} />
         </Routes>
