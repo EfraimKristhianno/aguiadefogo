@@ -169,7 +169,7 @@ export function AppSidebar() {
                 className={cn(
                   "flex items-center w-full px-3 py-2 rounded-lg text-xs font-semibold uppercase tracking-wider transition-colors duration-200",
                   hasActive
-                    ? "text-sidebar-primary"
+                    ? "bg-sidebar-primary/20 text-sidebar-primary"
                     : "text-sidebar-foreground/50 hover:text-sidebar-foreground/80"
                 )}
                 title={collapsed ? group.title : undefined}
