@@ -34,19 +34,13 @@ export default function Login() {
   return (
     <div className="min-h-screen flex">
       {/* Left – background image */}
-      <div className="hidden lg:flex lg:w-3/5 relative items-center justify-center">
+      <div className="hidden lg:flex lg:w-3/5 relative">
         <img
           src={loginBg}
-          alt=""
+          alt="Águia de Fogo – Segurança e Monitoramento"
           className="absolute inset-0 w-full h-full object-cover"
         />
         <div className="absolute inset-0 bg-black/10" />
-        {/* Logo centralizada */}
-        <img
-          src={logoHeader}
-          alt="Águia de Fogo – Segurança e Monitoramento"
-          className="relative z-10 w-[420px] max-w-[80%] h-auto object-contain drop-shadow-2xl"
-        />
       </div>
 
       {/* Right – login form */}
