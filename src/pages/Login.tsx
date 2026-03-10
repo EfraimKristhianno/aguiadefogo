@@ -7,7 +7,7 @@ import { Label } from "@/components/ui/label";
 import { Checkbox } from "@/components/ui/checkbox";
 import { supabase } from "@/lib/supabase";
 import { toast } from "sonner";
-import loginBg from "@/assets/login-bg.png";
+import loginLogo from "@/assets/login-logo.png";
 import logoHeader from "@/assets/logo-header.png";
 
 export default function Login() {
