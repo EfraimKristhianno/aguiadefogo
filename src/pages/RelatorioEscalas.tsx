@@ -3,6 +3,8 @@ import { Button } from "@/components/ui/button";
 import { StatCard } from "@/components/dashboard/StatCard";
 import { Badge } from "@/components/ui/badge";
 import { motion } from "framer-motion";
+import { toast } from "sonner";
+import { downloadMockPDF, generateRelatorioEscalasPDF } from "@/lib/download-utils";
 
 const mockRelEscalas = [
   { id: 1, posto: "Posto Central", cobertura: "100%", vigilantes: 4, turnosDia: 2, horasSemana: 168, status: "Completa" },
@@ -13,14 +15,16 @@ const mockRelEscalas = [
 ];
 
 export default function RelatorioEscalas() {
+  const handleExport = () => {
+    downloadMockPDF("Relatorio_Escalas_Mar_2026.txt", generateRelatorioEscalasPDF());
+    toast.success("Relatório de escalas exportado!");
+  };
+
   return (
     <div className="space-y-6">
       <div className="flex items-center justify-between">
-        <div>
-          <h1 className="text-2xl font-bold">Relatório de Escalas</h1>
-          <p className="text-muted-foreground">Cobertura e alocação por posto</p>
-        </div>
-        <Button variant="outline"><Download className="h-4 w-4 mr-2" />Exportar</Button>
+        <div><h1 className="text-2xl font-bold">Relatório de Escalas</h1><p className="text-muted-foreground">Cobertura e alocação por posto</p></div>
+        <Button variant="outline" onClick={handleExport}><Download className="h-4 w-4 mr-2" />Exportar</Button>
       </div>
 
       <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
@@ -31,16 +35,14 @@ export default function RelatorioEscalas() {
 
       <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} className="glass rounded-xl overflow-hidden">
         <table className="w-full">
-          <thead>
-            <tr className="border-b border-border bg-muted/30">
-              <th className="text-left py-3 px-4 text-xs font-semibold text-muted-foreground uppercase">Posto</th>
-              <th className="text-left py-3 px-4 text-xs font-semibold text-muted-foreground uppercase">Cobertura</th>
-              <th className="text-left py-3 px-4 text-xs font-semibold text-muted-foreground uppercase">Vigilantes</th>
-              <th className="text-left py-3 px-4 text-xs font-semibold text-muted-foreground uppercase">Turnos/Dia</th>
-              <th className="text-left py-3 px-4 text-xs font-semibold text-muted-foreground uppercase">Horas/Sem</th>
-              <th className="text-left py-3 px-4 text-xs font-semibold text-muted-foreground uppercase">Status</th>
-            </tr>
-          </thead>
+          <thead><tr className="border-b border-border bg-muted/30">
+            <th className="text-left py-3 px-4 text-xs font-semibold text-muted-foreground uppercase">Posto</th>
+            <th className="text-left py-3 px-4 text-xs font-semibold text-muted-foreground uppercase">Cobertura</th>
+            <th className="text-left py-3 px-4 text-xs font-semibold text-muted-foreground uppercase">Vigilantes</th>
+            <th className="text-left py-3 px-4 text-xs font-semibold text-muted-foreground uppercase">Turnos/Dia</th>
+            <th className="text-left py-3 px-4 text-xs font-semibold text-muted-foreground uppercase">Horas/Sem</th>
+            <th className="text-left py-3 px-4 text-xs font-semibold text-muted-foreground uppercase">Status</th>
+          </tr></thead>
           <tbody>
             {mockRelEscalas.map((r) => (
               <tr key={r.id} className="border-b border-border/50 hover:bg-muted/20 transition-colors">
@@ -50,11 +52,7 @@ export default function RelatorioEscalas() {
                 <td className="py-3 px-4 text-sm">{r.turnosDia}</td>
                 <td className="py-3 px-4 text-sm">{r.horasSemana}h</td>
                 <td className="py-3 px-4">
-                  <Badge className={
-                    r.status === "Completa" ? "bg-green-100 text-green-700 hover:bg-green-100"
-                    : r.status === "Parcial" ? "bg-yellow-100 text-yellow-700 hover:bg-yellow-100"
-                    : "bg-red-100 text-red-700 hover:bg-red-100"
-                  }>{r.status}</Badge>
+                  <Badge className={r.status === "Completa" ? "bg-green-100 text-green-700 hover:bg-green-100" : r.status === "Parcial" ? "bg-yellow-100 text-yellow-700 hover:bg-yellow-100" : "bg-red-100 text-red-700 hover:bg-red-100"}>{r.status}</Badge>
                 </td>
               </tr>
             ))}

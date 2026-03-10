@@ -254,7 +254,10 @@ export function AppSidebar() {
           {collapsed ? <ChevronRight className="h-4 w-4" /> : <ChevronLeft className="h-4 w-4" />}
           {!collapsed && <span>Recolher</span>}
         </button>
-        <button className="flex items-center gap-3 px-3 py-2 rounded-lg text-sm text-sidebar-foreground/60 hover:bg-destructive/20 hover:text-destructive w-full transition-colors">
+        <button
+          onClick={() => { window.location.href = "/login"; }}
+          className="flex items-center gap-3 px-3 py-2 rounded-lg text-sm text-sidebar-foreground/60 hover:bg-destructive/20 hover:text-destructive w-full transition-colors"
+        >
           <LogOut className="h-4 w-4" />
           {!collapsed && <span>Sair</span>}
         </button>

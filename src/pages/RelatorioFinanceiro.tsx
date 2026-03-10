@@ -3,6 +3,8 @@ import { Button } from "@/components/ui/button";
 import { StatCard } from "@/components/dashboard/StatCard";
 import { motion } from "framer-motion";
 import { AreaChart, Area, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer } from "recharts";
+import { toast } from "sonner";
+import { downloadMockPDF, generateRelatorioFinanceiroPDF } from "@/lib/download-utils";
 
 const evolucao = [
   { month: "Jan", receita: 85000, despesa: 62000, lucro: 23000 },
@@ -14,14 +16,16 @@ const evolucao = [
 ];
 
 export default function RelatorioFinanceiro() {
+  const handleExport = () => {
+    downloadMockPDF("Relatorio_Financeiro_2026.txt", generateRelatorioFinanceiroPDF());
+    toast.success("Relatório financeiro exportado!");
+  };
+
   return (
     <div className="space-y-6">
       <div className="flex items-center justify-between">
-        <div>
-          <h1 className="text-2xl font-bold">Relatório Financeiro</h1>
-          <p className="text-muted-foreground">Análise financeira consolidada</p>
-        </div>
-        <Button variant="outline"><Download className="h-4 w-4 mr-2" />Exportar</Button>
+        <div><h1 className="text-2xl font-bold">Relatório Financeiro</h1><p className="text-muted-foreground">Análise financeira consolidada</p></div>
+        <Button variant="outline" onClick={handleExport}><Download className="h-4 w-4 mr-2" />Exportar</Button>
       </div>
 
       <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
@@ -36,14 +40,8 @@ export default function RelatorioFinanceiro() {
         <ResponsiveContainer width="100%" height={300}>
           <AreaChart data={evolucao}>
             <defs>
-              <linearGradient id="colorRec" x1="0" y1="0" x2="0" y2="1">
-                <stop offset="5%" stopColor="hsl(120, 60%, 40%)" stopOpacity={0.3} />
-                <stop offset="95%" stopColor="hsl(120, 60%, 40%)" stopOpacity={0} />
-              </linearGradient>
-              <linearGradient id="colorDesp" x1="0" y1="0" x2="0" y2="1">
-                <stop offset="5%" stopColor="hsl(0, 98%, 31%)" stopOpacity={0.3} />
-                <stop offset="95%" stopColor="hsl(0, 98%, 31%)" stopOpacity={0} />
-              </linearGradient>
+              <linearGradient id="colorRec" x1="0" y1="0" x2="0" y2="1"><stop offset="5%" stopColor="hsl(120, 60%, 40%)" stopOpacity={0.3} /><stop offset="95%" stopColor="hsl(120, 60%, 40%)" stopOpacity={0} /></linearGradient>
+              <linearGradient id="colorDesp" x1="0" y1="0" x2="0" y2="1"><stop offset="5%" stopColor="hsl(0, 98%, 31%)" stopOpacity={0.3} /><stop offset="95%" stopColor="hsl(0, 98%, 31%)" stopOpacity={0} /></linearGradient>
             </defs>
             <CartesianGrid strokeDasharray="3 3" stroke="hsl(0, 0%, 90%)" />
             <XAxis dataKey="month" tick={{ fontSize: 12 }} />

@@ -1,10 +1,14 @@
-import { Plus, Search, Shield, MoreHorizontal, Eye, Edit, Trash2 } from "lucide-react";
 import { useState } from "react";
+import { Plus, Search, MoreHorizontal, Eye, Edit, Trash2 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
+import { Label } from "@/components/ui/label";
 import { Badge } from "@/components/ui/badge";
+import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger, DialogFooter } from "@/components/ui/dialog";
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger } from "@/components/ui/dropdown-menu";
 import { motion } from "framer-motion";
+import { toast } from "sonner";
 
 const mockUsers = [
   { id: 1, name: "Admin Sistema", email: "admin@aguiadefogo.com.br", role: "admin", lastAccess: "10/03/2026 08:30", status: "Ativo" },
@@ -19,16 +23,38 @@ const roleColors: Record<string, string> = { admin: "bg-red-100 text-red-700", g
 
 export default function Usuarios() {
   const [search, setSearch] = useState("");
+  const [open, setOpen] = useState(false);
   const filtered = mockUsers.filter((u) => u.name.toLowerCase().includes(search.toLowerCase()));
+  const handleSubmit = (e: React.FormEvent) => { e.preventDefault(); toast.success("Usuário cadastrado com sucesso!"); setOpen(false); };
 
   return (
     <div className="space-y-6">
       <div className="flex items-center justify-between">
-        <div>
-          <h1 className="text-2xl font-bold">Usuários do Sistema</h1>
-          <p className="text-muted-foreground">Gerenciar acessos e permissões</p>
-        </div>
-        <Button className="bg-primary hover:bg-primary/90"><Plus className="h-4 w-4 mr-2" />Novo Usuário</Button>
+        <div><h1 className="text-2xl font-bold">Usuários do Sistema</h1><p className="text-muted-foreground">Gerenciar acessos e permissões</p></div>
+        <Dialog open={open} onOpenChange={setOpen}>
+          <DialogTrigger asChild><Button className="bg-primary hover:bg-primary/90"><Plus className="h-4 w-4 mr-2" />Novo Usuário</Button></DialogTrigger>
+          <DialogContent className="max-w-lg">
+            <DialogHeader><DialogTitle>Novo Usuário</DialogTitle></DialogHeader>
+            <form onSubmit={handleSubmit} className="space-y-4">
+              <div className="space-y-2"><Label>Nome Completo</Label><Input placeholder="Nome do usuário" required /></div>
+              <div className="space-y-2"><Label>E-mail</Label><Input type="email" placeholder="usuario@aguiadefogo.com.br" required /></div>
+              <div className="space-y-2"><Label>Senha</Label><Input type="password" placeholder="Mínimo 6 caracteres" required /></div>
+              <div className="space-y-2">
+                <Label>Perfil de Acesso</Label>
+                <Select><SelectTrigger><SelectValue placeholder="Selecione" /></SelectTrigger>
+                  <SelectContent>
+                    <SelectItem value="admin">Administrador</SelectItem>
+                    <SelectItem value="gestor">Gestor</SelectItem>
+                    <SelectItem value="supervisor">Supervisor</SelectItem>
+                    <SelectItem value="funcionario">Funcionário</SelectItem>
+                  </SelectContent>
+                </Select>
+              </div>
+              <div className="space-y-2"><Label>Telefone</Label><Input placeholder="(00) 00000-0000" /></div>
+              <DialogFooter><Button type="submit" className="bg-primary hover:bg-primary/90">Cadastrar Usuário</Button></DialogFooter>
+            </form>
+          </DialogContent>
+        </Dialog>
       </div>
 
       <div className="relative max-w-sm">
@@ -38,16 +64,14 @@ export default function Usuarios() {
 
       <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} className="glass rounded-xl overflow-hidden">
         <table className="w-full">
-          <thead>
-            <tr className="border-b border-border bg-muted/30">
-              <th className="text-left py-3 px-4 text-xs font-semibold text-muted-foreground uppercase">Nome</th>
-              <th className="text-left py-3 px-4 text-xs font-semibold text-muted-foreground uppercase">E-mail</th>
-              <th className="text-left py-3 px-4 text-xs font-semibold text-muted-foreground uppercase">Perfil</th>
-              <th className="text-left py-3 px-4 text-xs font-semibold text-muted-foreground uppercase">Último Acesso</th>
-              <th className="text-left py-3 px-4 text-xs font-semibold text-muted-foreground uppercase">Status</th>
-              <th className="text-right py-3 px-4 text-xs font-semibold text-muted-foreground uppercase">Ações</th>
-            </tr>
-          </thead>
+          <thead><tr className="border-b border-border bg-muted/30">
+            <th className="text-left py-3 px-4 text-xs font-semibold text-muted-foreground uppercase">Nome</th>
+            <th className="text-left py-3 px-4 text-xs font-semibold text-muted-foreground uppercase">E-mail</th>
+            <th className="text-left py-3 px-4 text-xs font-semibold text-muted-foreground uppercase">Perfil</th>
+            <th className="text-left py-3 px-4 text-xs font-semibold text-muted-foreground uppercase">Último Acesso</th>
+            <th className="text-left py-3 px-4 text-xs font-semibold text-muted-foreground uppercase">Status</th>
+            <th className="text-right py-3 px-4 text-xs font-semibold text-muted-foreground uppercase">Ações</th>
+          </tr></thead>
           <tbody>
             {filtered.map((u) => (
               <tr key={u.id} className="border-b border-border/50 hover:bg-muted/20 transition-colors">

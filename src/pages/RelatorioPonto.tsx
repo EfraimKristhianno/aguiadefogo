@@ -1,8 +1,9 @@
 import { Clock, Download, AlertTriangle } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { StatCard } from "@/components/dashboard/StatCard";
-import { Badge } from "@/components/ui/badge";
 import { motion } from "framer-motion";
+import { toast } from "sonner";
+import { downloadMockPDF, generateRelatorioPontoPDF } from "@/lib/download-utils";
 
 const mockRelatorioPonto = [
   { id: 1, funcionario: "Carlos Silva", diasTrabalhados: 22, atrasos: 1, faltas: 0, horasExtras: "4h30", totalHoras: "184h30" },
@@ -13,14 +14,16 @@ const mockRelatorioPonto = [
 ];
 
 export default function RelatorioPonto() {
+  const handleExport = () => {
+    downloadMockPDF("Relatorio_Ponto_Mar_2026.txt", generateRelatorioPontoPDF());
+    toast.success("Relatório de ponto exportado!");
+  };
+
   return (
     <div className="space-y-6">
       <div className="flex items-center justify-between">
-        <div>
-          <h1 className="text-2xl font-bold">Relatório de Controle de Ponto</h1>
-          <p className="text-muted-foreground">Março 2026</p>
-        </div>
-        <Button variant="outline"><Download className="h-4 w-4 mr-2" />Exportar</Button>
+        <div><h1 className="text-2xl font-bold">Relatório de Controle de Ponto</h1><p className="text-muted-foreground">Março 2026</p></div>
+        <Button variant="outline" onClick={handleExport}><Download className="h-4 w-4 mr-2" />Exportar</Button>
       </div>
 
       <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
@@ -32,16 +35,14 @@ export default function RelatorioPonto() {
 
       <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} className="glass rounded-xl overflow-hidden">
         <table className="w-full">
-          <thead>
-            <tr className="border-b border-border bg-muted/30">
-              <th className="text-left py-3 px-4 text-xs font-semibold text-muted-foreground uppercase">Funcionário</th>
-              <th className="text-left py-3 px-4 text-xs font-semibold text-muted-foreground uppercase">Dias Trab.</th>
-              <th className="text-left py-3 px-4 text-xs font-semibold text-muted-foreground uppercase">Atrasos</th>
-              <th className="text-left py-3 px-4 text-xs font-semibold text-muted-foreground uppercase">Faltas</th>
-              <th className="text-left py-3 px-4 text-xs font-semibold text-muted-foreground uppercase">H. Extras</th>
-              <th className="text-left py-3 px-4 text-xs font-semibold text-muted-foreground uppercase">Total Horas</th>
-            </tr>
-          </thead>
+          <thead><tr className="border-b border-border bg-muted/30">
+            <th className="text-left py-3 px-4 text-xs font-semibold text-muted-foreground uppercase">Funcionário</th>
+            <th className="text-left py-3 px-4 text-xs font-semibold text-muted-foreground uppercase">Dias Trab.</th>
+            <th className="text-left py-3 px-4 text-xs font-semibold text-muted-foreground uppercase">Atrasos</th>
+            <th className="text-left py-3 px-4 text-xs font-semibold text-muted-foreground uppercase">Faltas</th>
+            <th className="text-left py-3 px-4 text-xs font-semibold text-muted-foreground uppercase">H. Extras</th>
+            <th className="text-left py-3 px-4 text-xs font-semibold text-muted-foreground uppercase">Total Horas</th>
+          </tr></thead>
           <tbody>
             {mockRelatorioPonto.map((r) => (
               <tr key={r.id} className="border-b border-border/50 hover:bg-muted/20 transition-colors">
