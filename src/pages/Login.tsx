@@ -7,7 +7,7 @@ import { Checkbox } from "@/components/ui/checkbox";
 import { supabase } from "@/lib/supabase";
 import { toast } from "sonner";
 import loginBg from "@/assets/login-bg.svg";
-import loginLogo from "@/assets/login-logo.png";
+
 
 export default function Login() {
   const navigate = useNavigate();
@@ -123,14 +123,6 @@ export default function Login() {
         </div>
       </div>
 
-      {/* Right side – logo (visible on lg+) */}
-      <div className="hidden lg:flex absolute inset-y-0 right-0 w-[49%] items-center justify-center pointer-events-none">
-        <img
-          src={loginLogo}
-          alt="Águia de Fogo"
-          className="max-w-[55%] h-auto object-contain drop-shadow-2xl"
-        />
-      </div>
     </div>
   );
 }
