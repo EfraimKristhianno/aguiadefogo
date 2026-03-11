@@ -123,14 +123,6 @@ export default function Login() {
         </div>
       </div>
 
-      {/* Right side – logo (visible on lg+) */}
-      <div className="hidden lg:flex absolute inset-y-0 right-0 w-[49%] items-center justify-center pointer-events-none">
-        <img
-          src={loginLogo}
-          alt="Águia de Fogo"
-          className="max-w-[55%] h-auto object-contain drop-shadow-2xl"
-        />
-      </div>
     </div>
   );
 }
