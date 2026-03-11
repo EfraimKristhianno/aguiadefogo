@@ -4,6 +4,7 @@ import { ChevronLeft, ChevronRight, LogOut } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { SidebarMenuContent } from "./SidebarMenuContent";
 import logoLateral from "@/assets/logo-lateral.svg";
+import logoIcon from "@/assets/logo-icon.svg";
 
 interface AppSidebarProps {
   collapsed: boolean;
