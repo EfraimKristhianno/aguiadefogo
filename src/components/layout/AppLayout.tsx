@@ -39,7 +39,7 @@ export function AppLayout() {
           </div>
         </SheetContent>
       </Sheet>
-      <div className={cn("transition-all duration-300 w-full min-w-0 max-w-full overflow-hidden", sidebarCollapsed ? "md:ml-[68px]" : "md:ml-64")}>
+      <div className={cn("transition-all duration-300 min-w-0 overflow-hidden", sidebarCollapsed ? "md:ml-[68px]" : "md:ml-64")}>
         <AppHeader onMenuClick={() => setMobileMenuOpen(true)} />
         <main className="p-4 sm:p-6 w-full min-w-0 overflow-x-auto">
           <div className="w-full min-w-0">
