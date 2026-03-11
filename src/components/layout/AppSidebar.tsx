@@ -3,6 +3,7 @@ import { useLocation } from "react-router-dom";
 import { ChevronLeft, ChevronRight, LogOut } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { SidebarMenuContent } from "./SidebarMenuContent";
+import logoLateral from "@/assets/logo-lateral.svg";
 
 interface AppSidebarProps {
   collapsed: boolean;
