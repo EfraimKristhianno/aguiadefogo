@@ -3,6 +3,7 @@ import { useLocation } from "react-router-dom";
 import { ChevronLeft, ChevronRight, LogOut } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { SidebarMenuContent } from "./SidebarMenuContent";
+import logoLateral from "@/assets/logo-lateral.svg";
 
 interface AppSidebarProps {
   collapsed: boolean;
@@ -48,9 +49,7 @@ export function AppSidebar({ collapsed, onToggleCollapse }: AppSidebarProps) {
     >
       <div className="flex items-center justify-center px-4 py-4 border-b border-sidebar-border min-h-[64px]">
         {!collapsed ? (
-          <span className="text-sm font-bold text-sidebar-primary tracking-wide">
-            ÁGUIA DE FOGO
-          </span>
+          <img src={logoLateral} alt="Águia de Fogo" className="h-8 w-auto" />
         ) : (
           <span className="text-xs font-bold text-sidebar-primary">AF</span>
         )}
