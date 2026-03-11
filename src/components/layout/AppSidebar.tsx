@@ -4,8 +4,12 @@ import { ChevronLeft, ChevronRight, LogOut } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { SidebarMenuContent } from "./SidebarMenuContent";
 
-export function AppSidebar() {
-  const [collapsed, setCollapsed] = useState(false);
+interface AppSidebarProps {
+  collapsed: boolean;
+  onToggleCollapse: () => void;
+}
+
+export function AppSidebar({ collapsed, onToggleCollapse }: AppSidebarProps) {
   const location = useLocation();
 
   const getInitialOpen = () => {
@@ -61,7 +65,7 @@ export function AppSidebar() {
 
       <div className="border-t border-sidebar-border p-2 space-y-1">
         <button
-          onClick={() => setCollapsed(!collapsed)}
+          onClick={onToggleCollapse}
           className="flex items-center gap-3 px-3 py-2 rounded-lg text-sm text-sidebar-foreground/60 hover:bg-sidebar-accent hover:text-sidebar-foreground w-full transition-colors"
         >
           {collapsed ? <ChevronRight className="h-4 w-4" /> : <ChevronLeft className="h-4 w-4" />}

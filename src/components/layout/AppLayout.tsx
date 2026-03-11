@@ -4,13 +4,15 @@ import { AppSidebar } from "./AppSidebar";
 import { AppHeader } from "./AppHeader";
 import { Sheet, SheetContent } from "@/components/ui/sheet";
 import { SidebarMenuContent } from "./SidebarMenuContent";
+import { cn } from "@/lib/utils";
 
 export function AppLayout() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [sidebarCollapsed, setSidebarCollapsed] = useState(false);
 
   return (
     <div className="min-h-screen bg-background w-full min-w-0 max-w-full overflow-x-hidden">
-      <AppSidebar />
+      <AppSidebar collapsed={sidebarCollapsed} onToggleCollapse={() => setSidebarCollapsed(!sidebarCollapsed)} />
       <Sheet open={mobileMenuOpen} onOpenChange={setMobileMenuOpen}>
         <SheetContent
           side="left"
@@ -37,7 +39,7 @@ export function AppLayout() {
           </div>
         </SheetContent>
       </Sheet>
-      <div className="md:ml-64 transition-all duration-300 w-full min-w-0 max-w-full overflow-hidden">
+      <div className={cn("transition-all duration-300 w-full min-w-0 max-w-full overflow-hidden", sidebarCollapsed ? "md:ml-[68px]" : "md:ml-64")}>
         <AppHeader onMenuClick={() => setMobileMenuOpen(true)} />
         <main className="p-4 sm:p-6 w-full min-w-0 max-w-full overflow-x-hidden">
           <div className="w-full min-w-0 max-w-full">
