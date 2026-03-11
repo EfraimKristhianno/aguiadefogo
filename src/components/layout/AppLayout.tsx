@@ -21,9 +21,7 @@ export function AppLayout() {
         >
           <div className="flex flex-col h-full">
             <div className="flex items-center justify-center px-4 py-4 border-b border-sidebar-border min-h-[64px]">
-              <span className="text-sm font-bold text-sidebar-primary tracking-wide">
-                ÁGUIA DE FOGO
-              </span>
+              <img src={logoLateral} alt="Águia de Fogo" className="h-8 w-auto" />
             </div>
             <SidebarMenuContent
               variant="sheet"
