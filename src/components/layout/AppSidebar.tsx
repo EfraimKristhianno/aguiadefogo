@@ -52,7 +52,7 @@ export function AppSidebar({ collapsed, onToggleCollapse }: AppSidebarProps) {
         {!collapsed ? (
           <img src={logoLateral} alt="Águia de Fogo" className="h-8 w-auto" />
         ) : (
-          <span className="text-xs font-bold text-sidebar-primary">AF</span>
+          <img src={logoIcon} alt="Águia de Fogo" className="h-8 w-auto" />
         )}
       </div>
 
