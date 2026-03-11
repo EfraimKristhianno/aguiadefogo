@@ -28,7 +28,7 @@ export function AppSidebar({ collapsed, onToggleCollapse }: AppSidebarProps) {
     return openSet;
   };
 
-  const [openGroups, setOpenGroups] = __react.useState<Set<string>>(getInitialOpen);
+  const [openGroups, setOpenGroups] = useState<Set<string>>(getInitialOpen);
 
   const toggleGroup = (title: string) => {
     setOpenGroups((prev) => {
