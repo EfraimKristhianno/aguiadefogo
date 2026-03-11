@@ -5,6 +5,7 @@ import { AppHeader } from "./AppHeader";
 import { Sheet, SheetContent } from "@/components/ui/sheet";
 import { SidebarMenuContent } from "./SidebarMenuContent";
 import { cn } from "@/lib/utils";
+import logoLateral from "@/assets/logo-lateral.svg";
 
 export function AppLayout() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
