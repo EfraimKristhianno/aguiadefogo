@@ -4,6 +4,7 @@ import { ChevronLeft, ChevronRight, LogOut } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { SidebarMenuContent } from "./SidebarMenuContent";
 import logoLateral from "@/assets/logo-lateral.svg";
+import logoIcon from "@/assets/logo-icon.svg";
 
 interface AppSidebarProps {
   collapsed: boolean;
@@ -51,7 +52,7 @@ export function AppSidebar({ collapsed, onToggleCollapse }: AppSidebarProps) {
         {!collapsed ? (
           <img src={logoLateral} alt="Águia de Fogo" className="h-8 w-auto" />
         ) : (
-          <span className="text-xs font-bold text-sidebar-primary">AF</span>
+          <img src={logoIcon} alt="Águia de Fogo" className="h-8 w-auto" />
         )}
       </div>
 
