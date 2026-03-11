@@ -19,7 +19,6 @@ import Contratos from "./pages/Contratos";
 import Usuarios from "./pages/Usuarios";
 import Configuracoes from "./pages/Configuracoes";
 import Rondas from "./pages/Rondas";
-import Monitoramento from "./pages/Monitoramento";
 import Propostas from "./pages/Propostas";
 import ContasReceber from "./pages/ContasReceber";
 import Faturamento from "./pages/Faturamento";
@@ -60,7 +59,6 @@ const App = () => (
             <Route path="/checklists" element={<Checklists />} />
             <Route path="/ocorrencias" element={<Ocorrencias />} />
             <Route path="/rondas" element={<Rondas />} />
-            <Route path="/monitoramento" element={<Monitoramento />} />
             {/* Financeiro */}
             <Route path="/orcamentos" element={<Orcamentos />} />
             <Route path="/propostas" element={<Propostas />} />

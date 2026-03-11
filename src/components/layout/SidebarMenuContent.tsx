@@ -15,7 +15,6 @@ import {
   Settings,
   FileSignature,
   MapPin,
-  Eye,
   Wallet,
   TrendingUp,
   BarChart3,
@@ -66,7 +65,6 @@ const menuGroups: MenuGroup[] = [
       { icon: ClipboardCheck, label: "Checklists de Segurança", path: "/checklists" },
       { icon: AlertTriangle, label: "Ocorrências", path: "/ocorrencias" },
       { icon: Route, label: "Rondas", path: "/rondas" },
-      { icon: Eye, label: "Monitoramento", path: "/monitoramento" },
     ],
   },
   {
