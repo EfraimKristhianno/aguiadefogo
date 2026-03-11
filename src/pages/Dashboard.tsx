@@ -56,10 +56,10 @@ const recentOccurrences = [
 
 export default function Dashboard() {
   return (
-    <div className="space-y-6">
+    <div className="space-y-4 sm:space-y-6 w-full min-w-0">
       <div>
-        <h1 className="text-2xl font-bold">Dashboard</h1>
-        <p className="text-muted-foreground">Visão geral do sistema</p>
+        <h1 className="text-xl sm:text-2xl font-bold">Dashboard</h1>
+        <p className="text-muted-foreground text-sm sm:text-base">Visão geral do sistema</p>
       </div>
 
       {/* Stats */}

@@ -30,10 +30,10 @@ export default function Clientes() {
 
   return (
     <div className="space-y-6">
-      <div className="flex items-center justify-between">
+      <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
         <div>
-          <h1 className="text-2xl font-bold">Clientes</h1>
-          <p className="text-muted-foreground">Gerenciar clientes e contratos</p>
+          <h1 className="text-xl sm:text-2xl font-bold">Clientes</h1>
+          <p className="text-muted-foreground text-sm sm:text-base">Gerenciar clientes e contratos</p>
         </div>
         <Dialog open={open} onOpenChange={setOpen}>
           <DialogTrigger asChild>
@@ -42,15 +42,15 @@ export default function Clientes() {
           <DialogContent className="max-w-lg">
             <DialogHeader><DialogTitle>Novo Cliente</DialogTitle></DialogHeader>
             <form onSubmit={handleSubmit} className="space-y-4">
-              <div className="grid grid-cols-2 gap-4">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 <div className="space-y-2"><Label>Razão Social</Label><Input placeholder="Nome da empresa" required /></div>
                 <div className="space-y-2"><Label>Nome Fantasia</Label><Input placeholder="Nome fantasia" /></div>
               </div>
-              <div className="grid grid-cols-2 gap-4">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 <div className="space-y-2"><Label>CNPJ</Label><Input placeholder="00.000.000/0000-00" required /></div>
                 <div className="space-y-2"><Label>Inscrição Estadual</Label><Input placeholder="Inscrição estadual" /></div>
               </div>
-              <div className="grid grid-cols-2 gap-4">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 <div className="space-y-2"><Label>Telefone</Label><Input placeholder="(00) 00000-0000" /></div>
                 <div className="space-y-2"><Label>E-mail</Label><Input type="email" placeholder="contato@empresa.com" /></div>
               </div>
