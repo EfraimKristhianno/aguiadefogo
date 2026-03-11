@@ -20,8 +20,8 @@ export default function RelatorioPonto() {
   };
 
   return (
-    <div className="space-y-6">
-      <div className="flex items-center justify-between">
+    <div className="space-y-4 sm:space-y-6 w-full min-w-0">
+      <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
         <div><h1 className="text-2xl font-bold">Relatório de Controle de Ponto</h1><p className="text-muted-foreground">Março 2026</p></div>
         <Button variant="outline" onClick={handleExport}><Download className="h-4 w-4 mr-2" />Exportar</Button>
       </div>
@@ -34,6 +34,7 @@ export default function RelatorioPonto() {
       </div>
 
       <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} className="glass rounded-xl overflow-hidden">
+        <div className="table-scroll">
         <table className="w-full">
           <thead><tr className="border-b border-border bg-muted/30">
             <th className="text-left py-3 px-4 text-xs font-semibold text-muted-foreground uppercase">Funcionário</th>
@@ -56,6 +57,7 @@ export default function RelatorioPonto() {
             ))}
           </tbody>
         </table>
+        </div>
       </motion.div>
     </div>
   );

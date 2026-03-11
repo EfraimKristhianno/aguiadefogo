@@ -143,4 +143,15 @@
   .glass-dark {
     @apply bg-card/60 backdrop-blur-xl border border-border/30 shadow-2xl;
   }
+
+  /* Tabela responsiva - scroll horizontal em telas pequenas */
+  .table-scroll {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    max-width: 100%;
+  }
+
+  .table-scroll table {
+    min-width: 640px;
+  }
 }

@@ -28,9 +28,9 @@ export default function Usuarios() {
   const handleSubmit = (e: React.FormEvent) => { e.preventDefault(); toast.success("Usuário cadastrado com sucesso!"); setOpen(false); };
 
   return (
-    <div className="space-y-6">
-      <div className="flex items-center justify-between">
-        <div><h1 className="text-2xl font-bold">Usuários do Sistema</h1><p className="text-muted-foreground">Gerenciar acessos e permissões</p></div>
+    <div className="space-y-4 sm:space-y-6 w-full min-w-0">
+      <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
+        <div><h1 className="text-xl sm:text-2xl font-bold">Usuários do Sistema</h1><p className="text-muted-foreground text-sm sm:text-base">Gerenciar acessos e permissões</p></div>
         <Dialog open={open} onOpenChange={setOpen}>
           <DialogTrigger asChild><Button className="bg-primary hover:bg-primary/90"><Plus className="h-4 w-4 mr-2" />Novo Usuário</Button></DialogTrigger>
           <DialogContent className="max-w-lg">
@@ -63,6 +63,7 @@ export default function Usuarios() {
       </div>
 
       <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} className="glass rounded-xl overflow-hidden">
+        <div className="table-scroll">
         <table className="w-full">
           <thead><tr className="border-b border-border bg-muted/30">
             <th className="text-left py-3 px-4 text-xs font-semibold text-muted-foreground uppercase">Nome</th>
@@ -94,6 +95,7 @@ export default function Usuarios() {
             ))}
           </tbody>
         </table>
+        </div>
       </motion.div>
     </div>
   );

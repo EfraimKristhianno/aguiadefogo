@@ -9,7 +9,7 @@ export function AppLayout() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   return (
-    <div className="min-h-screen bg-background w-full min-w-0">
+    <div className="min-h-screen bg-background w-full min-w-0 max-w-full overflow-x-hidden">
       <AppSidebar />
       <Sheet open={mobileMenuOpen} onOpenChange={setMobileMenuOpen}>
         <SheetContent
@@ -37,10 +37,12 @@ export function AppLayout() {
           </div>
         </SheetContent>
       </Sheet>
-      <div className="md:ml-64 transition-all duration-300 w-full min-w-0">
+      <div className="md:ml-64 transition-all duration-300 w-full min-w-0 max-w-full overflow-hidden">
         <AppHeader onMenuClick={() => setMobileMenuOpen(true)} />
-        <main className="p-4 sm:p-6 w-full min-w-0 overflow-x-auto">
-          <Outlet />
+        <main className="p-4 sm:p-6 w-full min-w-0 max-w-full overflow-x-hidden">
+          <div className="w-full min-w-0 max-w-full">
+            <Outlet />
+          </div>
         </main>
       </div>
     </div>

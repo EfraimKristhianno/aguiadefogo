@@ -11,13 +11,14 @@ const mockPonto = [
 
 export default function ControlePonto() {
   return (
-    <div className="space-y-6">
+    <div className="space-y-4 sm:space-y-6 w-full min-w-0">
       <div>
         <h1 className="text-2xl font-bold">Controle de Ponto</h1>
         <p className="text-muted-foreground">Registro de entrada e saída dos funcionários</p>
       </div>
 
       <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} className="glass rounded-xl overflow-hidden">
+        <div className="table-scroll">
         <table className="w-full">
           <thead>
             <tr className="border-b border-border bg-muted/30">
@@ -46,6 +47,7 @@ export default function ControlePonto() {
             ))}
           </tbody>
         </table>
+        </div>
       </motion.div>
     </div>
   );

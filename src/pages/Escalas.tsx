@@ -84,6 +84,7 @@ export default function Escalas() {
       </div>
 
       <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} className="glass rounded-xl overflow-hidden">
+        <div className="table-scroll">
         <table className="w-full">
           <thead><tr className="border-b border-border bg-muted/30">
             <th className="text-left py-3 px-4 text-xs font-semibold text-muted-foreground uppercase w-48">Funcionário</th>
@@ -102,6 +103,7 @@ export default function Escalas() {
             ))}
           </tbody>
         </table>
+        </div>
       </motion.div>
     </div>
   );

@@ -52,6 +52,7 @@ export default function Faturamento() {
       </motion.div>
 
       <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} className="glass rounded-xl overflow-hidden">
+        <div className="table-scroll">
         <table className="w-full">
           <thead>
             <tr className="border-b border-border bg-muted/30">
@@ -76,6 +77,7 @@ export default function Faturamento() {
             ))}
           </tbody>
         </table>
+        </div>
       </motion.div>
     </div>
   );

@@ -21,7 +21,7 @@ const contracts = [
 
 export default function Financeiro() {
   return (
-    <div className="space-y-6">
+    <div className="space-y-4 sm:space-y-6 w-full min-w-0">
       <div>
         <h1 className="text-2xl font-bold">Financeiro</h1>
         <p className="text-muted-foreground">Controle de contratos e faturamento</p>
@@ -50,6 +50,7 @@ export default function Financeiro() {
         <div className="p-5 pb-3">
           <h3 className="text-sm font-semibold">Contratos</h3>
         </div>
+        <div className="table-scroll">
         <table className="w-full">
           <thead>
             <tr className="border-b border-border bg-muted/30">
@@ -74,6 +75,7 @@ export default function Financeiro() {
             ))}
           </tbody>
         </table>
+        </div>
       </motion.div>
     </div>
   );
