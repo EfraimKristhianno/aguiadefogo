@@ -136,9 +136,6 @@ export default function DocumentosFuncionario() {
     fetchDocumentos();
   };
 
-  const filteredFuncs = funcionarios.filter((f) =>
-    f.nome.toLowerCase().includes(search.toLowerCase())
-  );
 
   const getCategoriaLabel = (val: string) =>
     CATEGORIAS.find((c) => c.value === val)?.label || val;
