@@ -48,10 +48,11 @@ export default function DocumentosFuncionario() {
   const [selectedFunc, setSelectedFunc] = useState<Funcionario | null>(null);
   const [selectedCategoria, setSelectedCategoria] = useState<string | null>(null);
   const [documentos, setDocumentos] = useState<Documento[]>([]);
-  const [search, setSearch] = useState("");
   const [loading, setLoading] = useState(true);
   const [uploading, setUploading] = useState(false);
   const [uploadDialogOpen, setUploadDialogOpen] = useState(false);
+  const [uploadCategoria, setUploadCategoria] = useState("");
+  const [comboOpen, setComboOpen] = useState(false);
   const [uploadCategoria, setUploadCategoria] = useState("");
 
   useEffect(() => {
