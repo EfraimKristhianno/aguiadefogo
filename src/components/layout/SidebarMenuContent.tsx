@@ -11,6 +11,8 @@ import {
   FileText,
   DollarSign,
   Receipt,
+  FolderOpen,
+  CheckSquare,
   ChevronDown,
   Settings,
   FileSignature,
@@ -84,11 +86,19 @@ const menuGroups: MenuGroup[] = [
     icon: Users,
     items: [
       { icon: Users, label: "Funcionários", path: "/funcionarios" },
+      { icon: FolderOpen, label: "Documentos Funcionários", path: "/documentos-funcionario" },
       { icon: Clock, label: "Controle de Ponto", path: "/ponto" },
       { icon: CalendarDays, label: "Escalas", path: "/escalas-rh" },
       { icon: Receipt, label: "Folha de Pagamento", path: "/folha" },
       { icon: ScrollText, label: "Holerites", path: "/holerites" },
       { icon: PenTool, label: "Assinatura Digital", path: "/assinatura-holerite" },
+    ],
+  },
+  {
+    title: "Qualidade",
+    icon: CheckSquare,
+    items: [
+      { icon: FileText, label: "Formulários RH", path: "/qualidade" },
     ],
   },
   {

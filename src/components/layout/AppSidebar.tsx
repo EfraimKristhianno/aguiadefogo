@@ -20,7 +20,8 @@ export function AppSidebar({ collapsed, onToggleCollapse }: AppSidebarProps) {
       { title: "Administrativo", items: [{ path: "/" }, { path: "/clientes" }, { path: "/postos" }, { path: "/contratos" }, { path: "/usuarios" }, { path: "/configuracoes" }] },
       { title: "Operacional", items: [{ path: "/escalas" }, { path: "/checklists" }, { path: "/ocorrencias" }, { path: "/rondas" }] },
       { title: "Financeiro", items: [{ path: "/orcamentos" }, { path: "/propostas" }, { path: "/contas-receber" }, { path: "/faturamento" }, { path: "/fluxo-caixa" }, { path: "/relatorios-financeiros" }] },
-      { title: "RH", items: [{ path: "/funcionarios" }, { path: "/ponto" }, { path: "/escalas-rh" }, { path: "/folha" }, { path: "/holerites" }, { path: "/assinatura-holerite" }] },
+      { title: "RH", items: [{ path: "/funcionarios" }, { path: "/documentos-funcionario" }, { path: "/ponto" }, { path: "/escalas-rh" }, { path: "/folha" }, { path: "/holerites" }, { path: "/assinatura-holerite" }] },
+      { title: "Qualidade", items: [{ path: "/qualidade" }] },
       { title: "Relatórios", items: [{ path: "/relatorio-funcionarios" }, { path: "/relatorio-ponto" }, { path: "/relatorio-escalas" }, { path: "/relatorio-ocorrencias" }, { path: "/relatorio-financeiro" }, { path: "/relatorio-postos" }] },
     ];
     groups.forEach((g) => {

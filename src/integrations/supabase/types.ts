@@ -254,6 +254,56 @@ export type Database = {
           },
         ]
       }
+      documentos_funcionario: {
+        Row: {
+          arquivo_url: string
+          categoria: string
+          created_at: string
+          funcionario_id: string
+          id: string
+          mes_referencia: string | null
+          nome_arquivo: string
+          observacoes: string | null
+          storage_path: string
+          updated_at: string
+          uploaded_by: string | null
+        }
+        Insert: {
+          arquivo_url: string
+          categoria: string
+          created_at?: string
+          funcionario_id: string
+          id?: string
+          mes_referencia?: string | null
+          nome_arquivo: string
+          observacoes?: string | null
+          storage_path: string
+          updated_at?: string
+          uploaded_by?: string | null
+        }
+        Update: {
+          arquivo_url?: string
+          categoria?: string
+          created_at?: string
+          funcionario_id?: string
+          id?: string
+          mes_referencia?: string | null
+          nome_arquivo?: string
+          observacoes?: string | null
+          storage_path?: string
+          updated_at?: string
+          uploaded_by?: string | null
+        }
+        Relationships: [
+          {
+            foreignKeyName: "documentos_funcionario_funcionario_id_fkey"
+            columns: ["funcionario_id"]
+            isOneToOne: false
+            referencedRelation: "funcionarios"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
       escalas: {
         Row: {
           created_at: string
@@ -351,6 +401,90 @@ export type Database = {
             referencedColumns: ["id"]
           },
         ]
+      }
+      formularios_preenchidos: {
+        Row: {
+          created_at: string
+          dados: Json
+          formulario_id: string | null
+          funcionario_id: string | null
+          id: string
+          preenchido_por: string | null
+          status: string | null
+          updated_at: string
+        }
+        Insert: {
+          created_at?: string
+          dados?: Json
+          formulario_id?: string | null
+          funcionario_id?: string | null
+          id?: string
+          preenchido_por?: string | null
+          status?: string | null
+          updated_at?: string
+        }
+        Update: {
+          created_at?: string
+          dados?: Json
+          formulario_id?: string | null
+          funcionario_id?: string | null
+          id?: string
+          preenchido_por?: string | null
+          status?: string | null
+          updated_at?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "formularios_preenchidos_formulario_id_fkey"
+            columns: ["formulario_id"]
+            isOneToOne: false
+            referencedRelation: "formularios_qualidade"
+            referencedColumns: ["id"]
+          },
+          {
+            foreignKeyName: "formularios_preenchidos_funcionario_id_fkey"
+            columns: ["funcionario_id"]
+            isOneToOne: false
+            referencedRelation: "funcionarios"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
+      formularios_qualidade: {
+        Row: {
+          campos: Json | null
+          categoria: string
+          codigo: string
+          created_at: string
+          id: string
+          revisao: string | null
+          status: string | null
+          titulo: string
+          updated_at: string
+        }
+        Insert: {
+          campos?: Json | null
+          categoria: string
+          codigo: string
+          created_at?: string
+          id?: string
+          revisao?: string | null
+          status?: string | null
+          titulo: string
+          updated_at?: string
+        }
+        Update: {
+          campos?: Json | null
+          categoria?: string
+          codigo?: string
+          created_at?: string
+          id?: string
+          revisao?: string | null
+          status?: string | null
+          titulo?: string
+          updated_at?: string
+        }
+        Relationships: []
       }
       funcionarios: {
         Row: {

@@ -33,6 +33,8 @@ import RelatorioEscalas from "./pages/RelatorioEscalas";
 import RelatorioOcorrencias from "./pages/RelatorioOcorrencias";
 import RelatorioFinanceiro from "./pages/RelatorioFinanceiro";
 import RelatorioPostos from "./pages/RelatorioPostos";
+import Qualidade from "./pages/Qualidade";
+import DocumentosFuncionario from "./pages/DocumentosFuncionario";
 import NotFound from "./pages/NotFound";
 import Login from "./pages/Login";
 
@@ -73,6 +75,9 @@ const App = () => (
             <Route path="/folha" element={<FolhaPagamento />} />
             <Route path="/holerites" element={<Holerites />} />
             <Route path="/assinatura-holerite" element={<AssinaturaHolerite />} />
+            <Route path="/documentos-funcionario" element={<DocumentosFuncionario />} />
+            {/* Qualidade */}
+            <Route path="/qualidade" element={<Qualidade />} />
             {/* Relatórios */}
             <Route path="/relatorio-funcionarios" element={<RelatorioFuncionarios />} />
             <Route path="/relatorio-ponto" element={<RelatorioPonto />} />
