@@ -11,6 +11,8 @@ import {
   FileText,
   DollarSign,
   Receipt,
+  FolderOpen,
+  CheckSquare,
   ChevronDown,
   Settings,
   FileSignature,
