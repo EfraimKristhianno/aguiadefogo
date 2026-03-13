@@ -253,7 +253,7 @@ export default function DocumentosFuncionario() {
     );
   }
 
-  // Employee list view
+  // Dropdown selection view
   return (
     <div className="space-y-6">
       <div>
@@ -261,34 +261,47 @@ export default function DocumentosFuncionario() {
         <p className="text-muted-foreground">Selecione um funcionário para gerenciar seus documentos</p>
       </div>
 
-      <div className="relative">
-        <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground" />
-        <Input placeholder="Buscar funcionário..." value={search} onChange={(e) => setSearch(e.target.value)} className="pl-10" />
-      </div>
-
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3">
-        {filteredFuncs.map((func, i) => (
-          <motion.button
-            key={func.id}
-            initial={{ opacity: 0, y: 10 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: i * 0.02 }}
-            onClick={() => setSelectedFunc(func)}
-            className="glass rounded-xl p-4 text-left flex items-center gap-3 hover:ring-2 hover:ring-primary/30 transition-all"
+      <Popover open={comboOpen} onOpenChange={setComboOpen}>
+        <PopoverTrigger asChild>
+          <Button
+            variant="outline"
+            role="combobox"
+            aria-expanded={comboOpen}
+            className="w-full max-w-md justify-between h-11"
           >
-            <div className="h-10 w-10 rounded-full bg-primary/10 flex items-center justify-center">
-              <User className="h-5 w-5 text-primary" />
-            </div>
-            <div className="flex-1 min-w-0">
-              <p className="font-medium text-sm truncate">{func.nome}</p>
-              <p className="text-xs text-muted-foreground">{func.cargo}</p>
-            </div>
-            <Badge variant={func.status === "Ativo" ? "default" : "secondary"} className="text-xs">
-              {func.status}
-            </Badge>
-          </motion.button>
-        ))}
-      </div>
+            {selectedFunc ? selectedFunc.nome : "Selecione um funcionário..."}
+            <ChevronsUpDown className="ml-2 h-4 w-4 shrink-0 opacity-50" />
+          </Button>
+        </PopoverTrigger>
+        <PopoverContent className="w-full max-w-md p-0">
+          <Command>
+            <CommandInput placeholder="Pesquisar funcionário..." />
+            <CommandList>
+              <CommandEmpty>Nenhum funcionário encontrado.</CommandEmpty>
+              <CommandGroup>
+                {funcionarios.map((func) => (
+                  <CommandItem
+                    key={func.id}
+                    value={func.nome}
+                    onSelect={() => {
+                      setSelectedFunc(func);
+                      setSelectedCategoria(null);
+                      setComboOpen(false);
+                    }}
+                  >
+                    <Check className={cn("mr-2 h-4 w-4", selectedFunc?.id === func.id ? "opacity-100" : "opacity-0")} />
+                    <div className="flex items-center gap-2 flex-1">
+                      <User className="h-4 w-4 text-primary" />
+                      <span>{func.nome}</span>
+                      <span className="text-xs text-muted-foreground ml-auto">{func.cargo}</span>
+                    </div>
+                  </CommandItem>
+                ))}
+              </CommandGroup>
+            </CommandList>
+          </Command>
+        </PopoverContent>
+      </Popover>
     </div>
   );
 }
