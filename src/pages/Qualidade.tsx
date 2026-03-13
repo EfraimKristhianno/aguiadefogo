@@ -22,7 +22,7 @@ interface FormularioQualidade {
 }
 
 export default function Qualidade() {
-  const [formularios, setFormularios] = useState<FormularioQualidade[]>([]);
+  const [formularios, setFormularios] = useState<any[]>([]);
   const [loading, setLoading] = useState(true);
   const [search, setSearch] = useState("");
   const [selectedForm, setSelectedForm] = useState<FormularioQualidade | null>(null);
