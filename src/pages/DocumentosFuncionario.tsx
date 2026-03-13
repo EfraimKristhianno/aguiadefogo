@@ -53,7 +53,6 @@ export default function DocumentosFuncionario() {
   const [uploadDialogOpen, setUploadDialogOpen] = useState(false);
   const [uploadCategoria, setUploadCategoria] = useState("");
   const [comboOpen, setComboOpen] = useState(false);
-  const [uploadCategoria, setUploadCategoria] = useState("");
 
   useEffect(() => {
     fetchFuncionarios();
