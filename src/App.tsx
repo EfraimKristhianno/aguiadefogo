@@ -33,6 +33,8 @@ import RelatorioEscalas from "./pages/RelatorioEscalas";
 import RelatorioOcorrencias from "./pages/RelatorioOcorrencias";
 import RelatorioFinanceiro from "./pages/RelatorioFinanceiro";
 import RelatorioPostos from "./pages/RelatorioPostos";
+import Qualidade from "./pages/Qualidade";
+import DocumentosFuncionario from "./pages/DocumentosFuncionario";
 import NotFound from "./pages/NotFound";
 import Login from "./pages/Login";
 
